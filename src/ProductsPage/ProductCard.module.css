@@ -1,0 +1,27 @@
+.productCard {
+    height: 18rem;
+    width: 18rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 0.1rem solid black; */
+}
+ 
+.productImage {
+    height: 10rem;
+    width: 10rem;
+    padding: 1rem;
+}
+
+.productTitle {
+    max-width: 15rem;
+}
+
+.productPrice {
+    display: flex;
+    font-style: italic;
+    font-weight: bold;
+    width: 100%;
+    justify-content: space-evenly;
+}
