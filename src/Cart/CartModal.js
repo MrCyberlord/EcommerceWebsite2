@@ -1,15 +1,15 @@
 import React from "react";
-import styles from "./CartModal.module.css";
+import Modal from "../Modal";
 
-const CartModal = ({ show, onClose }) => {
-  return show ? (
-    <div className={styles.modalOverlay} onClick={onClose}>
-      <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-        {/* Your cart items go here */}
-        <h1>Cart Items</h1>
-      </div>
-    </div>
-  ) : null;
+const CartModal = (props) => {
+  return (
+    <Modal onHide={props.onHide}>
+      <h1>Cart Item1</h1>
+      <h1>Cart Item2</h1>
+      <h1>Cart Item3</h1>
+      <h1>Cart Item4</h1>
+    </Modal>
+  );
 };
 
 export default CartModal;

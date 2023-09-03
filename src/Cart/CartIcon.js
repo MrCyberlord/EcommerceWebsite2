@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./CartIcon.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
+import CartModal from "./CartModal";
+
 const CartIcon = () => {
   const cartItemCount = 10;
 
+  const [showPortal, setShowPortal] = useState(false);
+
+  function onPortalShow() {
+    setShowPortal(!showPortal);
+  }
+
   return (
-    <div className={styles.cartIconWrapper}>
+    <div className={styles.cartIconWrapper} onClick={onPortalShow}>
       <FontAwesomeIcon icon={faCartShopping} className={styles.cartIcon} />
       <span className={styles.itemCount}>{cartItemCount}</span>
+
+      {showPortal ? <CartModal onHide={onPortalShow} /> : null}
     </div>
   );
 };
