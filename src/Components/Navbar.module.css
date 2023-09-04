@@ -1,0 +1,29 @@
+.Navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #433E5A;
+    color: #DDDAE8;
+    padding: 1rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: sticky;
+    min-height: 2rem;
+}
+
+.Navbar nav a {
+    background-color: #433E5A;
+    color: #DDDAE8;
+    padding: 0rem 0rem;
+    margin: 0rem 0.5rem;
+    text-decoration: none;
+    border-radius: 1rem;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.Navbar nav a:hover {
+    color:#b4acd4 ;
+}
+
