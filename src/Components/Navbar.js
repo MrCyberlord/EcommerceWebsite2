@@ -8,6 +8,7 @@ const Navbar = () => {
   return (
     <>
       <div className={styles.Navbar}>
+        <span className={styles.logo}>JewelFusion</span>
         <nav>
           <Link to="/Products">Home</Link>
           <Link to="/About">About</Link>

@@ -1,10 +1,11 @@
 .Navbar {
     display: flex;
     justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     background-color: #433E5A;
     color: #DDDAE8;
-    padding: 1rem;
+    padding:0.7rem 0rem;
     top: 0;
     left: 0;
     width: 100%;
@@ -15,11 +16,12 @@
 .Navbar nav a {
     background-color: #433E5A;
     color: #DDDAE8;
-    padding: 0rem 0rem;
+    padding: 0rem 0.8rem;
     margin: 0rem 0.5rem;
     text-decoration: none;
     border-radius: 1rem;
     transition: background-color 0.3s ease;
+    font-size: 1.6rem;
     font-weight: bold;
 }
 
@@ -27,3 +29,10 @@
     color:#b4acd4 ;
 }
 
+.logo {
+    font-size: 1.6rem;
+    font-weight: bold;
+    /* margin-right: auto; */
+    margin-left: 1.5rem;
+    color: #59E881;
+}

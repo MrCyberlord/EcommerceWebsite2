@@ -1,23 +1,25 @@
 .cartIconWrapper {
     position: relative;
     display: inline-block;
-    margin-right: 3rem;
+    margin-right: 2rem;
+    color:#66687f
 }
 
 .cartIconWrapper:hover {
     cursor: pointer;
-    color:#6e6f77;
+    color:#8a8eac;
 }
 
 .cartIcon {
-    font-size: 2.1rem;
+    font-size: 3rem;
 }
 
 .itemCount {
     position: absolute;
-    right: 0.6rem;
+    right: 1.3rem;
+    font-size: 1.4rem;
     font-weight: bold;
     width: 1rem;
     height: 1rem;
-    color: #090909;  
+    color: #59E881;  
 }

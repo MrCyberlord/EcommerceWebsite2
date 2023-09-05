@@ -1,9 +1,24 @@
 .products {
-    margin-top: 4rem;
+    margin-top: 2rem;
+  
 }
  
-.productList {
+/* .productList {
     display: grid;
+   
     grid-template-columns: repeat(4, 1fr);
+   
     gap: 1rem;
-}
+} */
+
+.productList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-around;
+  }
+  
+
+
+
+ 
