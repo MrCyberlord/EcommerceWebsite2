@@ -1,7 +1,6 @@
 .productCard {
     height: 18rem;
     width: 18rem;
-    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +11,7 @@
 .productImage {
     height: 10rem;
     width: 10rem;
-    padding: 1rem;
+    padding: 1rem;  
 }
 
 .productTitle {

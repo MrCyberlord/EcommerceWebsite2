@@ -8,6 +8,8 @@ import LoginPage from "./Components/Authentication/LoginPage";
 import About from "./Components/About";
 import ContactPage from "./Components/ContactPage";
 
+import "./App.css";
+
 const App = () => {
   return (
     <BrowserRouter>
