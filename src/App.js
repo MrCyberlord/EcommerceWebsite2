@@ -1,6 +1,8 @@
 import React from "react";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./Components/Store/Store";
 
 import Navbar from "./Components/Navbar";
 import Products from "./Components/ProductsPage/Products";
@@ -12,16 +14,18 @@ import "./App.css";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Products />} />
-        <Route path="/Login" element={<LoginPage />} />
-        <Route path="/Products" element={<Products />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Contact" element={<ContactPage />} />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Products />} />
+          <Route path="/Login" element={<LoginPage />} />
+          <Route path="/Products" element={<Products />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/Contact" element={<ContactPage />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 };
 

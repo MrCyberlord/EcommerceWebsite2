@@ -16,10 +16,12 @@
 
 .itemCount {
     position: absolute;
-    right: 1.3rem;
-    font-size: 1.4rem;
+    top: 0.1rem;
+    right: 0.9rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    width: 1rem;
+    min-width: 1rem;
+    text-align: center;
     height: 1rem;
     color: #59E881;  
 }

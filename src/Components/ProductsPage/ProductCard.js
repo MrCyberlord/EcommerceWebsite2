@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./ProductCard.module.css";
+import ActionsButton from "./ActionsButton";
 
 const ProductCard = ({ product }) => {
   return (
@@ -12,7 +13,7 @@ const ProductCard = ({ product }) => {
       <div className={styles.productTitle}>{product.title}</div>
       <div className={styles.productPrice}>
         Price: ${product.price}
-        <button>add</button>
+        <ActionsButton product={product} />
       </div>
     </div>
   );

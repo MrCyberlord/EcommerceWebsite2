@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import styles from "./CartIcon.module.css";
 
+import { useSelector } from "react-redux";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 import CartModal from "./CartModal";
 
 const CartIcon = () => {
-  const cartItemCount = 10;
+  const cartItemCount = useSelector((state) => state.cart.totalQuantity);
 
   const [showPortal, setShowPortal] = useState(false);
 
