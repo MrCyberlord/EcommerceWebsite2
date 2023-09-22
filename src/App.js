@@ -6,7 +6,7 @@ import store from "./Components/Store/Store";
 
 import Navbar from "./Components/Navbar";
 import Products from "./Components/ProductsPage/Products";
-import LoginPage from "./Components/Authentication/LoginPage";
+import MainLoginPage from "./Components/LoginPage/MainLoginPage";
 import About from "./Components/About";
 import ContactPage from "./Components/ContactPage";
 
@@ -19,7 +19,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Products />} />
-          <Route path="/Login" element={<LoginPage />} />
+          <Route path="/Login" element={<MainLoginPage />} />
           <Route path="/Products" element={<Products />} />
           <Route path="/About" element={<About />} />
           <Route path="/Contact" element={<ContactPage />} />

@@ -1,0 +1,46 @@
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  form label {
+    align-self: flex-start;
+    margin-bottom: 0.2rem;
+    color: #59E881;
+  }
+  
+  form input {
+    padding: 0.3rem;
+    width: 20rem;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.25rem;
+    font-size: 1.2rem;
+  }
+  
+  form button {
+    padding: 0.4rem;
+    background-color: #455978;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+  
+  form button:hover {
+    background-color: #0056b3;
+  }
+  
+
+  .LoginButtons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .forgotPassword {
+    color: aliceblue;
+  }
