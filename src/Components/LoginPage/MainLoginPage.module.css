@@ -1,8 +1,7 @@
 .container {
-    width: 27rem;
+    width: 24rem;
     height: 22rem;
     background-color: #1E293B;
-    margin: auto;
     padding: 2rem; 
     border: 0.0625rem solid #ccc; 
     border-radius: 0.5rem; 
@@ -18,7 +17,6 @@
     justify-content: center;
     border-bottom: 0.0625rem solid #ccc; 
     margin-bottom: 1.25rem; 
-   
   }
   
   .tab {

@@ -1,10 +1,24 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ActionsButton from "../ProductsPage/ActionsButton";
 import styles from "./CartModal.module.css";
 
+import { clearCart } from "../Store/CartSlice";
+
 const CartModal = (props) => {
+  const isLoggedIn = useSelector((state) => state.auth.isAuth);
+  const dispatch = useDispatch();
+
+  const buyNowHandler = () => {
+    if (isLoggedIn) {
+      alert("Order is on your way");
+      dispatch(clearCart());
+    } else {
+      alert("Please login to place the order");
+    }
+  };
+
   // Disable scrolling of the background
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -48,6 +62,9 @@ const CartModal = (props) => {
           ))}
         </div>
         <div className={styles.modalFooter}>
+          <button className={styles.buyNowButton} onClick={buyNowHandler}>
+            Buy now
+          </button>
           <div className={styles.grandTotal}>Total Amount: ${grandTotal}</div>
         </div>
       </div>

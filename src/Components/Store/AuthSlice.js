@@ -14,7 +14,6 @@ const AuthSlice = createSlice({
       localStorage.setItem("email", action.payload.email);
       localStorage.setItem("token", action.payload.token);
       state.isAuth = true;
-      alert("Login Successfull");
     },
 
     logout(state) {
