@@ -3,6 +3,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { AuthSliceAction } from "../Store/AuthSlice";
 import styles from "./LoginForm.module.css";
+import { fetchCart } from "../Store/CartSlice";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -32,6 +33,10 @@ const LoginForm = () => {
           token: response.data.idToken,
         })
       );
+
+      // Dispatch fetchCart action to sync the user's cart after login
+      dispatch(fetchCart());
+
       alert("Logged In");
     } catch (error) {
       console.log("Error during login:", error);
@@ -44,7 +49,9 @@ const LoginForm = () => {
   return (
     <>
       {isAuth ? (
-        <div className={styles.loggedInMessage}>You are logged in.</div>
+        <div className={styles.loggedInMessage}>
+          You are logged from id "{localStorage.getItem("email")}"
+        </div>
       ) : (
         <form onSubmit={submitHandler}>
           <div className={styles.formGroup}>

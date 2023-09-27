@@ -3,6 +3,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { AuthSliceAction } from "../Store/AuthSlice";
 import styles from "./SignUpForm.module.css";
+import { fetchCart } from "../Store/CartSlice";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
@@ -16,6 +17,9 @@ const SignUpForm = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+
+    // Dispatch fetchCart action to sync the user's cart after signUp
+    dispatch(fetchCart());
 
     if (password !== confirmPassword) {
       alert("Passwords do not match!");

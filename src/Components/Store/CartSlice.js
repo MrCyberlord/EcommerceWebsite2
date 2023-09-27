@@ -1,9 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const URL =
-  "https://ecommercewebsite2-d7455-default-rtdb.firebaseio.com/cart/userCart.json";
-
 const initialState = {
   items: {},
   itemOrder: [],
@@ -11,18 +8,34 @@ const initialState = {
   status: "idle", //to handle loading state
 };
 
+const sanitizeEmail = (email) => email.replace(/[^a-zA-Z0-9]/g, "");
+
 export const updateCart = createAsyncThunk(
   "theCart/updateCart",
   async (_, { getState }) => {
-    const cart = getState().cart; // Get the updated cart state here
-    await axios.put(URL, cart);
+    const rawEmail = localStorage.getItem("email"); // Get user email from localStorage
+    const userEmail = sanitizeEmail(rawEmail || ""); // sanitize email
+    if (!userEmail) return; //---
+
+    const cart = getState().cart; // Getting updated cart state
+    const userCartURL = `https://ecommercewebsite2-d7455-default-rtdb.firebaseio.com/cart/${userEmail}.json`;
+
+    console.log("Update Cart URL: ", userCartURL); // Debugging line
+    await axios.put(userCartURL, cart);
     return cart;
   }
 );
 
 export const fetchCart = createAsyncThunk("cart/fetchCart", async () => {
+  const rawEmail = localStorage.getItem("email"); // Get user email from localStorage
+  const userEmail = sanitizeEmail(rawEmail || ""); // sanitize email
+  if (!userEmail) return initialState; // Return initialState if there's no userEmail
+
   try {
-    const response = await axios.get(URL);
+    const userCartURL = `https://ecommercewebsite2-d7455-default-rtdb.firebaseio.com/cart/${userEmail}.json`;
+
+    console.log("Fetch Cart URL: ", userCartURL); // Debugging line
+    const response = await axios.get(userCartURL);
     return response.data ? response.data : initialState;
   } catch (error) {
     console.error("Fetch cart failed", error);
