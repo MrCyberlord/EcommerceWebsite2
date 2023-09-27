@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ActionsButton from "../ProductsPage/ActionsButton";
 import styles from "./CartModal.module.css";
 
-import { clearCart } from "../Store/CartSlice";
+import { clearCart, updateCart } from "../Store/CartSlice";
 
 const CartModal = (props) => {
   const isLoggedIn = useSelector((state) => state.auth.isAuth);
@@ -14,6 +14,7 @@ const CartModal = (props) => {
     if (isLoggedIn) {
       alert("Order is on your way");
       dispatch(clearCart());
+      dispatch(updateCart());
     } else {
       alert("Please login to place the order");
     }
@@ -62,9 +63,12 @@ const CartModal = (props) => {
           ))}
         </div>
         <div className={styles.modalFooter}>
-          <button className={styles.buyNowButton} onClick={buyNowHandler}>
-            Buy now
-          </button>
+          {orderedCartItems.length > 0 && (
+            <button className={styles.buyNowButton} onClick={buyNowHandler}>
+              Buy now
+            </button>
+          )}
+
           <div className={styles.grandTotal}>Total Amount: ${grandTotal}</div>
         </div>
       </div>

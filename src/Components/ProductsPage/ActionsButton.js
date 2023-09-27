@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addItem, removeItem } from "../Store/CartSlice";
+import { addItem, removeItem, updateCart } from "../Store/CartSlice";
 
 import styles from "./ActionsButton.module.css";
 
@@ -12,11 +12,17 @@ const ActionsButton = ({ product }) => {
 
   const handleAddItem = () => {
     dispatch(addItem(product));
+    dispatch(updateCart());
   };
 
   const handleRemoveItem = () => {
     dispatch(removeItem(product.id));
+    dispatch(updateCart());
   };
+
+  // useEffect(() => {
+  //   dispatch(updateCart());
+  // }, [dispatch, cart]);        This action was causing the page to crash repeatedly
 
   return (
     <div className={styles.actionsButtonContainer}>
