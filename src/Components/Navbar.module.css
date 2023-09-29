@@ -32,7 +32,54 @@
 .logo {
     font-size: 1.6rem;
     font-weight: bold;
-    /* margin-right: auto; */
     margin-left: 1.5rem;
     color: #59E881;
+    display: block;
 }
+
+
+
+            /*      MOBILE STYLES START HERE         */
+
+.hamburgerIcon {
+    display: none;
+}
+
+
+/*      MEDIA QUERIES START HERE         */
+
+@media only screen and (max-width: 600px) {
+    .hamburgerIcon {
+        font-size: 2rem;
+        display: block;
+        cursor: pointer;
+        margin-left: 8rem;
+       
+    }
+
+    .mobileNav {
+        display: none;
+    }
+
+    .active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; 
+        text-align: center;
+        margin-left: 18rem;
+    }
+
+    .Navbar nav a {
+        background-color: #433E5A;
+        color: #DDDAE8;
+        padding: 0rem 3rem;
+        margin: 0.1rem 0rem;
+        text-decoration: none;
+        border-radius: 0.5rem;
+        transition: background-color 0.3s ease;
+        font-size: 1.6rem;
+        font-weight: bold;
+    } 
+}
+

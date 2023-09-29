@@ -32,3 +32,18 @@
     font-weight: bold;
   }
   
+
+  @media only screen and (max-width: 600px) {
+    .actionsButtonContainer {
+      height: 1rem;
+      width: 4rem;
+    }
+    
+    .actionButton {
+      font-size: 1rem;
+    }
+    
+    .actionQuantity {
+      font-size: 0.8rem;
+    }
+  }

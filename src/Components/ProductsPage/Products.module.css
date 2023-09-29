@@ -1,14 +1,6 @@
 .products {
     padding-top: 2rem;
 }
- 
-/* .productList {
-    display: grid;
-   
-    grid-template-columns: repeat(4, 1fr);
-   
-    gap: 1rem;
-} */
 
 .productList {
     display: flex;
@@ -17,7 +9,14 @@
     justify-content: space-around;
   }
   
-
+.footer {
+    background-color: #433E5A;
+    color: #DDDAE8;
+    text-align: center;
+    font-size: 1rem;
+    padding: 1rem 0;
+    margin-top: 5rem;
+}
 
 
  

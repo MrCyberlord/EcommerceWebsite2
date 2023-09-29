@@ -27,6 +27,9 @@ const Products = () => {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+      <footer className={styles.footer}>
+        © 2023 JewelFusion. All Rights Reserved.
+      </footer>
     </div>
   );
 };
