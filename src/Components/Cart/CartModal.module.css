@@ -119,11 +119,11 @@
     } 
 
     .closeButton {
-      font-size: 0.8rem;
+      font-size: 1rem;
     }
 
     .cartImage {
-      width: 1.5rem;
+      width: 1.rem;
       height: 1.5rem;
       margin-right: 0.8rem;
     }
@@ -138,7 +138,7 @@
     min-width: 4rem;
     text-align: center;
     flex-shrink: 0;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .buyNowButton {

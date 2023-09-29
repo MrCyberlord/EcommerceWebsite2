@@ -5,7 +5,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* border: 0.1rem solid black; */
 }
  
 .productImage {
@@ -27,4 +26,12 @@
     font-weight: bold;
     width: 100%;
     justify-content: space-evenly;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .productCard {
+        height: 15rem;
+        width: 15rem;
+    }
 }

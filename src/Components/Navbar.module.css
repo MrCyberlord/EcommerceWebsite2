@@ -50,10 +50,10 @@
 
 @media only screen and (max-width: 600px) {
     .hamburgerIcon {
-        font-size: 2rem;
-        display: block;
+        font-size: 2.5rem;
+        display: block; 
         cursor: pointer;
-        margin-left: 8rem;
+        margin-left: 5rem;
        
     }
 
@@ -67,7 +67,7 @@
         position: absolute;
         top: 100%; 
         text-align: center;
-        margin-left: 18rem;
+        margin-left: 12rem;
     }
 
     .Navbar nav a {
@@ -78,7 +78,7 @@
         text-decoration: none;
         border-radius: 0.5rem;
         transition: background-color 0.3s ease;
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         font-weight: bold;
     } 
 }
