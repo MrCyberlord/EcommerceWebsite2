@@ -31,7 +31,15 @@
 
 @media only screen and (max-width: 600px) {
     .productCard {
-        height: 15rem;
-        width: 15rem;
+        height: 16rem;
+        width: 16rem;
+        border: solid 0.2rem black;
+        margin: 1.5rem;
+    }
+
+    .productImage {
+        height: 8rem;
+        width: 8rem;
+        padding: 1rem;  
     }
 }

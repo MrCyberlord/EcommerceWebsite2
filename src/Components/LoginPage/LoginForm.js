@@ -72,6 +72,10 @@ const LoginForm = () => {
     } finally {
       setIsLoading(false);
     }
+
+    // Resetting the fields on form submission
+    setEmail("");
+    setPassword("");
   };
 
   return (
