@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import axios from "axios";
+
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 
 import styles from "./ContactPage.module.css";
-import axios from "axios";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +22,105 @@ const ContactPage = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
+    if (!formData.name) {
+      toast("Name is required.", {
+        position: "bottom-left",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        progress: undefined,
+        style: {
+          backgroundColor: "#333",
+          color: "#fff",
+          borderRadius: "1rem",
+        },
+      });
+      return;
+    }
+
+    if (!formData.phoneNumber) {
+      toast("Phone number is required.", {
+        position: "bottom-left",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        progress: undefined,
+        style: {
+          backgroundColor: "#333",
+          color: "#fff",
+          borderRadius: "1rem",
+        },
+      });
+      return;
+    }
+
+    if (!/^[\d]+$/.test(formData.phoneNumber)) {
+      toast("Enter a valid Phone Number", {
+        position: "bottom-left",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        progress: undefined,
+        style: {
+          backgroundColor: "#333",
+          color: "#fff",
+          borderRadius: "1rem",
+        },
+      });
+      return;
+    }
+
+    if (!formData.email) {
+      toast("Email is required.", {
+        position: "bottom-left",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        progress: undefined,
+        style: {
+          backgroundColor: "#333",
+          color: "#fff",
+          borderRadius: "1rem",
+        },
+      });
+      return;
+    }
+
+    if (!formData.message) {
+      toast("Message cannot be empty.", {
+        position: "bottom-left",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        progress: undefined,
+        style: {
+          backgroundColor: "#333",
+          color: "#fff",
+          borderRadius: "1rem",
+        },
+      });
+      return;
+    }
+
+    toast("Thanks for contacting us.", {
+      position: "bottom-left",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      progress: undefined,
+      style: {
+        backgroundColor: "#1b1755",
+        color: "#fff",
+        borderRadius: "1rem",
+      },
+    });
+
     const firebasertdbURL =
       "https://ecommercewebsite2-d7455-default-rtdb.firebaseio.com/";
 
@@ -33,6 +135,18 @@ const ContactPage = () => {
 
   return (
     <div className={styles.contactFormContainer}>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <form onSubmit={submitHandler}>
         <div className={styles.inputGroup}>
           <input
@@ -41,7 +155,6 @@ const ContactPage = () => {
             name="name"
             value={formData.name}
             onChange={changeHandler}
-            required
           />
         </div>
         <div className={styles.inputGroup}>
@@ -51,7 +164,6 @@ const ContactPage = () => {
             name="phoneNumber"
             value={formData.phoneNumber}
             onChange={changeHandler}
-            required
           />
         </div>
         <div className={styles.inputGroup}>
@@ -61,7 +173,6 @@ const ContactPage = () => {
             name="email"
             value={formData.email}
             onChange={changeHandler}
-            required
           />
         </div>
         <div className={styles.inputGroup}>
@@ -71,7 +182,6 @@ const ContactPage = () => {
             rows="5"
             value={formData.message}
             onChange={changeHandler}
-            required
           ></textarea>
         </div>
         <button type="submit">Send message</button>

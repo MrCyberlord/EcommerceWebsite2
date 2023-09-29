@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { AuthSliceAction } from "../Store/AuthSlice";
 import styles from "./SignUpForm.module.css";
 import { fetchCart } from "../Store/CartSlice";
+import { ToastContainer, toast } from "react-toastify";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
@@ -22,7 +23,19 @@ const SignUpForm = () => {
     dispatch(fetchCart());
 
     if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+      toast("Passwords do not match!", {
+        position: "top-left",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        progress: undefined,
+        style: {
+          backgroundColor: "#333",
+          color: "#fff",
+          borderRadius: "1rem",
+        },
+      });
       return;
     }
 
@@ -41,54 +54,98 @@ const SignUpForm = () => {
           token: response.data.idToken,
         })
       );
-      alert("Sign Up Successful");
+      toast("Sign Up SuccessFul", {
+        position: "bottom-left",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        progress: undefined,
+        style: {
+          backgroundColor: "#333",
+          color: "#fff",
+          borderRadius: "1rem",
+        },
+      });
     } catch (error) {
       console.error("Error during sign up:", error);
-      alert("Sign Up Failed");
+
+      toast("Sign Up Failed", {
+        position: "bottom-left",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        progress: undefined,
+        style: {
+          backgroundColor: "#333",
+          color: "#fff",
+          borderRadius: "1rem",
+        },
+      });
     } finally {
       setIsLoading(false);
     }
+
+    // Resetting the fields on form submission
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <div className={styles.formGroup}>
-        <label>Email</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          minLength="8"
-          required
-        ></input>
-      </div>
+    <>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+      <form onSubmit={submitHandler}>
+        <div className={styles.formGroup}>
+          <label>Email</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            minLength="8"
+            required
+          ></input>
+        </div>
 
-      <div className={styles.formGroup}>
-        <label>Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          minLength="8"
-          required
-        ></input>
-      </div>
+        <div className={styles.formGroup}>
+          <label>Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            minLength="8"
+            required
+          ></input>
+        </div>
 
-      <div className={styles.formGroup}>
-        <label>Confirm Password</label>
-        <input
-          type="password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          minLength="8"
-          required
-        ></input>
-      </div>
+        <div className={styles.formGroup}>
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            minLength="8"
+            required
+          ></input>
+        </div>
 
-      <button type="submit" disabled={isLoading}>
-        {isLoading ? "Signing Up..." : "Sign Up"}
-      </button>
-    </form>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? "Signing Up..." : "Sign Up"}
+        </button>
+      </form>
+    </>
   );
 };
 

@@ -25,3 +25,10 @@
     height: 1rem;
     color: #59E881;  
 }
+
+@media only screen and (max-width: 600px) {
+    .itemCount {
+        top: 0.3rem;
+        right: 0.9rem;
+    }
+}

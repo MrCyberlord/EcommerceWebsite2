@@ -5,6 +5,7 @@ import ActionsButton from "../ProductsPage/ActionsButton";
 import styles from "./CartModal.module.css";
 
 import { clearCart, updateCart } from "../Store/CartSlice";
+import { ToastContainer, toast } from "react-toastify";
 
 const CartModal = (props) => {
   const isLoggedIn = useSelector((state) => state.auth.isAuth);
@@ -12,11 +13,36 @@ const CartModal = (props) => {
 
   const buyNowHandler = () => {
     if (isLoggedIn) {
-      alert("Order is on your way");
+      toast("Order is on your way", {
+        position: "bottom-left",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        progress: undefined,
+        style: {
+          backgroundColor: "#333",
+          color: "#fff",
+          borderRadius: "1rem",
+        },
+      });
+
       dispatch(clearCart());
       dispatch(updateCart());
     } else {
-      alert("Please login to place the order");
+      toast("Please login to place the order", {
+        position: "bottom-left",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        progress: undefined,
+        style: {
+          backgroundColor: "#333",
+          color: "#fff",
+          borderRadius: "1rem",
+        },
+      });
     }
   };
 
@@ -42,6 +68,18 @@ const CartModal = (props) => {
 
   return ReactDOM.createPortal(
     <div className={styles.modalOverlay}>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <div className={styles.modalContent} onClick={stopPropagation}>
         <button className={styles.closeButton} onClick={props.onHide}>
           X

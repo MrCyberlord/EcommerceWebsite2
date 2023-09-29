@@ -73,12 +73,12 @@
     .Navbar nav a {
         background-color: #433E5A;
         color: #DDDAE8;
-        padding: 0rem 3rem;
+        padding: 0.5rem 3rem;
         margin: 0.1rem 0rem;
         text-decoration: none;
         border-radius: 0.5rem;
         transition: background-color 0.3s ease;
-        font-size: 1.8rem;
+        font-size: 2rem;
         font-weight: bold;
     } 
 }

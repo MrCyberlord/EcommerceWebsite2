@@ -81,12 +81,12 @@
 
   @media only screen and (max-width: 600px) {
     .container {
-      width: 20rem;
+      width: 18rem;
     }
    
     form input {
   
-      width: 18rem;
+      width: 16rem;
      
     }
     
